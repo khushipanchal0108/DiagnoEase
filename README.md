@@ -2,6 +2,12 @@
 ```markdown
 # PDF Summary API
 
+
+project_folder/
+│
+├── app.py                  # Flask app
+└── t5_finetuned_model.pt    # Your fine-tuned T5 model
+
 ## Setup Instructions
 ```
 ### 1. Go to your desired location (Desktop, Documents, etc.)
