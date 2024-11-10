@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+</head>
+<body>
+    <h1>Summary of the PDF</h1>
+    
+    <h3>Extracted Data:</h3>
+    <ul>
+        {% for key, value in extracted_data.items() %}
+            <li><strong>{{ key }}</strong> {{ value }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Summary:</h3>
+    <p>{{ summary }}</p>
+
+    <a href="/">Back to Upload</a>
+</body>
+</html>
