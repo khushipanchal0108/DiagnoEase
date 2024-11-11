@@ -4,8 +4,10 @@ import torch
 from flask import Flask, request, render_template, redirect, url_for, jsonify
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 import pdfplumber
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 # Set an upload folder
 UPLOAD_FOLDER = 'uploads'
@@ -16,7 +18,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Initialize the model and tokenizer
 model = T5ForConditionalGeneration.from_pretrained("t5-small")  # Load base model
-model.load_state_dict(torch.load("C:\\Users\\Khushi Panchal\\Desktop\\PROJECT\\pdf_summary_api\\t5_finetuned_model.pt"))
+model.load_state_dict(torch.load("C:\\Users\\Khushi Panchal\\Desktop\\PROJECT\\pdf_summary_api\\modelnew.pt", map_location=torch.device('cpu')))
 model.eval()  # Put the model in evaluation mode
 
 tokenizer = T5Tokenizer.from_pretrained("t5-small")  # Adjust to your finetuned model path
@@ -111,5 +113,5 @@ def generate_summary(input_data):
     summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
     return summary
 
-if __name__ == '__main__':
+if __name__ == '_main_':
     app.run(debug=True)
