@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif; /* Default font for body */
+        }
+
+        /* Background */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #e0c3fc, #ffb6b9, #8ec5fc); /* Blended soft gradient */
+            flex-direction: column;
+            text-align: center;
+            position: relative; /* For footer positioning */
+            padding: 40px;
+        }
+
+        /* DIAGNOEASE Heading */
+        h2 {
+            font-size: 2.5em;
+            font-family: 'Poppins', sans-serif; /* Font for Heading */
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* Main Title */
+        h1 {
+            font-size: 1.5em; /* Reduced font size */
+            color: #333;
+            margin-bottom: 30px;
+            font-family: 'Poppins', sans-serif; /* Font for Heading */
+        }
+
+        /* Form Container */
+        form {
+            background: #ffffff;
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        form:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        /* File Input Styling */
+        input[type="file"] {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #d4a5ff; /* Soft lavender */
+            color: black; /* Text color updated to black */
+            border-radius: 50px;
+            cursor: pointer;
+            margin-bottom: 25px;
+            font-size: 1em;
+            font-family: 'Roboto', sans-serif;
+            transition: background-color 0.3s ease;
+            transform: scale(0.65) translateX(-90px);
+        }
+
+        input[type="file"]:hover {
+            background-color: #b088d8; /* Slightly darker lavender on hover */
+        }
+
+        /* Submit Button */
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #ffb6b9; /* Peachy pink */
+            color: black; /* Text color updated to black */
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1em;
+            font-family: 'Roboto', sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff999c; /* Darker peachy pink on hover */
+        }
+
+        /* Active Button Effect */
+        input[type="submit"]:active {
+            transform: scale(0.98); /* Press effect */
+        }
+
+        /* Footer */
+        /*footer {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-size: 1em;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        footer p {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 8px 15px;
+            border-radius: 15px;
+            color: #fff;
+            text-align: center;
+        }*/
+    </style>
+</head>
+<body>
+
+<h2>DiagnoEase: Quick insights, Better care</h2>
+<h1>Upload a PDF File</h1>
+
+
+<form action="/upload" method="POST" enctype="multipart/form-data">
+    <div class="loader"></div>
+    <input type="file" name="file" id="file-upload">
+    <input type="submit" value="Upload PDF">
+</form>
+
+
+
+</body>
+</html>
