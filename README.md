@@ -110,82 +110,70 @@ The DiagnoEase Android app is the main interface for users. It allows them to up
 
 
 
+
+## 🌐 Hosting Flask Backend Online using Ngrok
+
+To allow the Android app to communicate with your locally running Flask API, we use **Ngrok** to expose the `localhost:5000` server to the internet through a public URL.
+
+### ✅ Step-by-Step Setup
+
+#### 1. **Activate Python Virtual Environment**
+Make sure your environment is activated before running the app:
+
+```bash
+venv\Scripts\activate
+```
+
+#### 2. **Start the Flask App**
+Run the backend server:
+
+```bash
+python app.py
+```
+
+This will start your app on:  
+`http://127.0.0.1:5000/`
+
+> ⚠️ Keep this terminal open — it needs to stay running.
+
+#### 3. **Install and Authenticate Ngrok**
+If you're using Ngrok for the first time on a new machine, get your **AuthToken** from [https://dashboard.ngrok.com/get-started/your-authtoken](https://dashboard.ngrok.com/get-started/your-authtoken) and run:
+
+```bash
+ngrok config add-authtoken <YOUR_AUTHTOKEN>
+```
+
+Example:
+
+```bash
+ngrok config add-authtoken 2ofLNa8LyGvp6uEll7ZBvfqT15j_66vu12VsX92Uofsa89hWM
+```
+
+#### 4. **Start Ngrok to Tunnel Port 5000**
+You can either use a dynamic random domain:
+
+```bash
+ngrok http 5000
+```
+
+Or, if you have reserved a **custom subdomain** (e.g., `reliably-vocal-meerkat.ngrok-free.app`):
+
+```bash
+ngrok http --domain=reliably-vocal-meerkat.ngrok-free.app 5000
+```
+
+Ngrok will now generate a public URL like:  
+`https://reliably-vocal-meerkat.ngrok-free.app`  
+which forwards to your local server on port 5000.
+
+#### 5. **Use This URL in the Android App**
+In your Android project (usually within the Retrofit client setup), make sure to use the Ngrok-generated URL as your **base URL** so the app can send requests to the Flask server.
+
+
+
 ## 🙌 Get Involved
 
 We're always looking for collaborators — developers, healthcare professionals, designers, or anyone interested in democratizing healthcare!
 
 📧 **jheelturakhia@gmail.com**  
 📧 **panchalk2004@gmail.com**
-
-
-
-
-
-```markdown
-# PDF Summary API
-
-
-project_folder/
-│
-├── app.py                  # Flask app
-└── t5_finetuned_model.pt    # Your fine-tuned T5 model
-
-## Setup Instructions
-```
-### 1. Go to your desired location (Desktop, Documents, etc.)
-```bash
-cd path/to/your/desired/location
-```
-
-### 2. Navigate into the folder
-```bash
-cd pdf_summary_api
-```
-
-### 3. Create a virtual environment
-```bash
-python3 -m venv venv
-```
-
-### 4. Activate the virtual environment
-
-**For Windows:**
-```bash
-venv\Scripts\activate
-```
-
-**For Mac/Linux:**
-```bash
-source venv/bin/activate
-```
-
-### 5. Install the required dependencies
-```bash
-pip install flask torch transformers pdfplumber sentencepiece
-```
-
-### 6. If Execution Policy Issue occurs
-If you encounter an **Execution Policy Issue**, run the following command:
-```bash
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-```
-
-Then, activate the virtual environment again:
-```bash
-venv\Scripts\activate
-```
-
-### 7. To run the app
-```bash
-flask run
-```
-
-The Flask app will run locally, and you can access it at `http://127.0.0.1:5000/`.
-
-## License
-MIT License
-```
-
-This version is short, to the point, and includes all the necessary steps without extra explanation. Let me know if you need further changes!
-
-
